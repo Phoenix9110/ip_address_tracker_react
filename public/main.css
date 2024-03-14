@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* background: none repeat scroll 0 0 transparent; */
+    border: medium none;
+    border-spacing: 0;
+}
+:root {
+  --main-bg-color: pink;
+  --very-dark-gray: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+  --font-size-input: 18px;
+}
+@font-face{
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+html{
+  font-family: "Rubik", Courier, monospace;
+}
+.top_section{
+  background-image: url('/images/pattern-bg-desktop.png');
+  background-size: cover;
+  height: 250px;
+}
+
+.top_section h1 {
+  color:aliceblue;
+  font-weight: 500;
+  text-align: center;
+  padding: 25px 0px;
+  font-size: 27px;
+}
+
+.search_bar{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+#search_bar{
+  height: 50px;
+  width: 400px;
+  border-radius: 15px 0px 0px 15px;
+  border: aliceblue 1px solid;
+  padding-block: 0px;
+  padding-inline: 0px;
+  font-size: var(--font-size-input);
+  padding: 0px 25px;
+}
+#search_bar:placeholder-shown{
+  font-weight: 500;
+  color: rgb(189, 189, 189);
+}
+#search_bar:focus {
+  border: aliceblue 1px solid;
+}
+#search_button{
+  height: 52px;
+  width: 45px;
+  background-color:var(--very-dark-gray);
+  border-radius: 0px 15px 15px 0px;
+  font-weight: 400;
+  cursor: pointer;
+}
+#search_button:hover{
+  background-color:var(--dark-gray);
+}
+
+/*middle section*/
+.panel_information{
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  height: 120px;
+  box-shadow: inset 1px 0px;
+  padding: 10px;
+}
+.panel_information article{
+  font-weight: 700;
+  padding: 15px 0;
+  width: 150px;
+}
+.panel_information article h5{
+  color: var(--dark-gray);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+.panel_information article p{
+  color: var(--very-dark-gray);
+  font-size: 25px;
+  padding-bottom: 10px;
+  font-weight: 500;
+}
+
+.separation{
+  border-right: 1px solid #d8d8d8;
+  height: 60px;
+  margin: auto 0;
+}
