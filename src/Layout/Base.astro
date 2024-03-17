@@ -1,9 +1,13 @@
 ---
 import SearchBar from '@/components/SearchBar'
 import PanelInformation from '@/components/PanelInformation'
+import Maps from '@/components/Maps'
 ---
 <section class="top_section">
   <h1>IP Address Tracker</h1>
   <SearchBar client:load/>
   <PanelInformation client:load/>
-</section> 
+</section>
+<section class="map">
+  <Maps client:only/>
+</section>

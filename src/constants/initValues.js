@@ -22,5 +22,11 @@ export const initialIPInformation = [
     title: 'isp',
     content: 'No Disponible',
     separator: false
+  },
+  {
+    item: 'coordinates',
+    title: 'coordinates',
+    content: [ 4.541, -74.05506 ],
+    separator: false
   }
 ]

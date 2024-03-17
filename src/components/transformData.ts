@@ -12,11 +12,14 @@ function transformData(data:object):array {
 
     const ispItem = extractISPItem(isp)
 
+    const coordinatesItem = extractCoordinatesItem(location)
+
     const ipInformation = [
       ipItem,
       locationItem,
       timezoneItem,
-      ispItem
+      ispItem,
+      coordinatesItem
     ]
     
     return ipInformation
@@ -61,6 +64,15 @@ function extractISPItem(isp):object {
     item : 'isp',
     title: 'isp',
     content: content,
+    separator: false
+  }
+}
+function extractCoordinatesItem(location):object {
+  const {lat, lng} = location
+  return {
+    item : 'coordinates',
+    title: 'coordinates',
+    content: [lat,lng],
     separator: false
   }
 }
