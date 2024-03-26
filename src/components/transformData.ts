@@ -1,7 +1,7 @@
 import {initialIPInformation} from '@/constants/initValues'
 
-function transformData(data:object):array {
-  if(data!==undefined){
+function transformData(data:any):Array<any> {
+  if(data!==undefined || Object.keys(data).length !== 0){
     const {ip, location, as, isp} = data
 
     const ipItem = extractIPItem(ip)
@@ -27,7 +27,7 @@ function transformData(data:object):array {
   return initialIPInformation
 }
 
-function extractIPItem(ip):object {
+function extractIPItem(ip:any):object {
   return {
     item : 'ip',
     title: 'Ip address',
@@ -35,7 +35,7 @@ function extractIPItem(ip):object {
     separator: true
   }
 }
-function extractLocationItem(location, as):object {
+function extractLocationItem(location:any, as:any):object {
   let content = 'No Disponible'
   if (location?.country!=='ZZ') content = `${location?.region}, ${location?.country} ${as?.asn}`
   
@@ -46,7 +46,7 @@ function extractLocationItem(location, as):object {
     separator: true
   }
 }
-function extractTimezoneItem(location):object {
+function extractTimezoneItem(location:any):object {
   let content = 'No Disponible'
   if (location?.timezone!=='') content = `UTC ${location?.timezone}`
   
@@ -57,7 +57,7 @@ function extractTimezoneItem(location):object {
     separator: true
   }
 }
-function extractISPItem(isp):object {
+function extractISPItem(isp:any):object {
   const content = (isp) ? isp: 'No Disponible'
   
   return {
@@ -67,7 +67,7 @@ function extractISPItem(isp):object {
     separator: false
   }
 }
-function extractCoordinatesItem(location):object {
+function extractCoordinatesItem(location:any):object {
   const {lat, lng} = location
   return {
     item : 'coordinates',

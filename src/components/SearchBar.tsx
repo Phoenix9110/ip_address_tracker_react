@@ -36,8 +36,10 @@ const SearchBar: React.FC = () => {
   },[])
 
   useEffect(()=>{
-    const ipData = transformData(dataAddress.data)
-    setIpInformation(ipData)
+    if(dataAddress!==undefined){
+      const ipData = transformData(dataAddress.data!)
+      setIpInformation(ipData)
+    }
   },[dataAddress])
 
   const handleSubmit = (event:React.FormEvent<EventTarget>): void => {
@@ -49,7 +51,7 @@ const SearchBar: React.FC = () => {
 
   }
 
-  const checkInput = (ipEntry) => {
+  const checkInput = (ipEntry:any) => {
     const regexIsValidIP = /(\d{1,3}\.){3}\d{1,3}/;
     const regexNotDigitOrDot = /^\.\d/
 
