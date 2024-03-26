@@ -1,7 +1,7 @@
 import React from "react";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import { ipStore } from "@/store/IPstore"
-import * as L from "leaflet";
+import L  from "leaflet";
 
 var Icon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
