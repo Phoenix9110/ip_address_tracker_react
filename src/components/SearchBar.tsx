@@ -4,8 +4,8 @@ import useInput from "@/hooks/useInput"
 import transformData from "@/components/transformData"
 import { BASE_GEO_IP, FIND_IP } from "@/constants/urls";
 import { ipStore } from "@/store/IPstore"
-import { useEffect, useState } from "react"
 
+import { useEffect, useState } from "react"
 
 const SearchBar: React.FC = () => {
   const ip = ipStore(state => state.ip)
@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
 
   const [initialIP, setInitialIP] = useState(null)
   const [error, setError] = useState('')
-  const [formIsValid, setFormIsValid] = useState(true)
+  const [, setFormIsValid] = useState(true)
  
   const ipEntry = useInput("")
   const dataAddress = useFetch(BASE_GEO_IP, ip)
@@ -23,7 +23,7 @@ const SearchBar: React.FC = () => {
     try{
       const response = await fetch(FIND_IP);
       const data = await response.json();
-      setInitialIP (data.ip)
+      setInitialIP(data)
     }catch(err:any){
       console.log(err)
     }
@@ -37,6 +37,7 @@ const SearchBar: React.FC = () => {
 
   useEffect(()=>{
     if(dataAddress!==undefined){
+      console.log(dataAddress)
       const ipData = transformData(dataAddress.data!)
       setIpInformation(ipData)
     }
@@ -45,10 +46,8 @@ const SearchBar: React.FC = () => {
   const handleSubmit = (event:React.FormEvent<EventTarget>): void => {
     event.preventDefault()
     if(checkInput(ipEntry.ipValue)){
-
       setIp(ipEntry.ipValue)
     }
-
   }
 
   const checkInput = (ipEntry:any) => {

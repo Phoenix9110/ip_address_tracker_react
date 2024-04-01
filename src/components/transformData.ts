@@ -1,33 +1,34 @@
-import {initialIPInformation} from '@/constants/initValues'
+import { initialIPInformation } from '@/constants/initValues.ts'
+import type { IPData } from '@/intefaces/ipLocation'
+import type { ResumeData } from '@/intefaces/resumeData'
 
-function transformData(data:any):Array<any> {
-  if(data!==undefined || Object.keys(data).length !== 0){
+function transformData(data:IPData):ResumeData[] {
+  if(data!==undefined){
     const {ip, location, as, isp} = data
 
-    const ipItem = extractIPItem(ip)
+    const ipItem:ResumeData = extractIPItem(ip)
 
-    const locationItem = extractLocationItem(location, as)
+    const locationItem:ResumeData = extractLocationItem(location, as)
 
-    const timezoneItem = extractTimezoneItem(location)
+    const timezoneItem:ResumeData = extractTimezoneItem(location)
 
-    const ispItem = extractISPItem(isp)
+    const ispItem:ResumeData = extractISPItem(isp)
 
-    const coordinatesItem = extractCoordinatesItem(location)
+    const coordinatesItem:ResumeData = extractCoordinatesItem(location)
 
-    const ipInformation = [
+    const ipInformation  = [
       ipItem,
       locationItem,
       timezoneItem,
       ispItem,
       coordinatesItem
     ]
-    
     return ipInformation
   }
   return initialIPInformation
 }
 
-function extractIPItem(ip:any):object {
+function extractIPItem(ip:any):ResumeData {
   return {
     item : 'ip',
     title: 'Ip address',
@@ -35,7 +36,7 @@ function extractIPItem(ip:any):object {
     separator: true
   }
 }
-function extractLocationItem(location:any, as:any):object {
+function extractLocationItem(location:any, as:any):ResumeData {
   let content = 'No Disponible'
   if (location?.country!=='ZZ') content = `${location?.region}, ${location?.country} ${as?.asn}`
   
@@ -46,7 +47,7 @@ function extractLocationItem(location:any, as:any):object {
     separator: true
   }
 }
-function extractTimezoneItem(location:any):object {
+function extractTimezoneItem(location:any):ResumeData {
   let content = 'No Disponible'
   if (location?.timezone!=='') content = `UTC ${location?.timezone}`
   
@@ -57,7 +58,7 @@ function extractTimezoneItem(location:any):object {
     separator: true
   }
 }
-function extractISPItem(isp:any):object {
+function extractISPItem(isp:any):ResumeData {
   const content = (isp) ? isp: 'No Disponible'
   
   return {
@@ -67,7 +68,7 @@ function extractISPItem(isp:any):object {
     separator: false
   }
 }
-function extractCoordinatesItem(location:any):object {
+function extractCoordinatesItem(location:any):ResumeData {
   const {lat, lng} = location
   return {
     item : 'coordinates',

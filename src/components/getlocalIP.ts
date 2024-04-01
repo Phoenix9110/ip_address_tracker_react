@@ -11,10 +11,3 @@ async function getLocalIP(): Promise<void> {
 }
 
 export default getLocalIP
-
-
-
-
-
-
-

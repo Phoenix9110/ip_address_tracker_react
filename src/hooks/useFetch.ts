@@ -6,11 +6,9 @@ export default function useFetch(url:string, ipAddress=null){
   const [loading,setLoading] = useState(false)
 
   useEffect(() => {
-    console.log('newIP',ipAddress)
     if(ipAddress!==null){
       const newUrl = url+ipAddress
       fetchData(newUrl)
-      // console.log(newUrl)
     }
   }, [url, ipAddress])
 
@@ -28,7 +26,3 @@ export default function useFetch(url:string, ipAddress=null){
   }
   return { data, error, loading }
 }
-
-// const response = await fetch('https://api.ipify.org?format=json');
-// const { ip } = await response.json();
-// this.ipAddress = ip;

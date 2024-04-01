@@ -1,4 +1,6 @@
-export const initialIPInformation = [
+import type { ResumeData } from "@/intefaces/resumeData"
+
+export const initialIPInformation:ResumeData[] = [
   {
     item: 'ip',
     title: 'Ip address',
