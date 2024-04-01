@@ -20,7 +20,7 @@ const Maps: React.FC = () => {
 
   return (
 
-      <MapContainer center={center} zoom={6} scrollWheelZoom={false} style={{ height: '100vh', width: '100wh' }} key={center.toString()}>
+      <MapContainer center={center} zoom={8} scrollWheelZoom={false} style={{ height: '100vh', width: '100wh' }} key={center.toString()}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
